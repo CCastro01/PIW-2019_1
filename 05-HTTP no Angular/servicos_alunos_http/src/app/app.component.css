@@ -1,0 +1,23 @@
+.teste1{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: bisque;
+    font-weight: bolder;
+}
+
+.teste2{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: aqua;
+    font-style: italic;
+}
+
+.reprovado{
+    background-color: red;
+}
+
+.aprovado{
+    background-color: green;
+}
+
+.recuperacao{
+    background-color: orange;
+}

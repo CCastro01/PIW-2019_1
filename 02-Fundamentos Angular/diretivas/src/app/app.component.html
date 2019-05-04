@@ -1,0 +1,23 @@
+<input type="text" appCampoColorido [cor]="'red'">
+<button>OK</button>
+
+<h1>Pessoas</h1>
+<ul > 
+    <li *ngFor='let p of pessoas' [ngStyle]="{'color':getColor(p.pais),'font-weight':'bold'}">{{p.nome}} ({{p.pais}})</li> 
+</ul>
+
+<hr>
+
+<h1>Pessoas</h1>
+<ul > 
+    <li *ngFor='let p of pessoas' [ngClass]="{'teste1':p.pais=='BR','teste2':p.pais=='US'}">{{p.nome}} ({{p.pais}})</li> 
+</ul>
+
+<hr>
+
+<h1>Alunos</h1>
+<ul > 
+    <li *ngFor='let a of alunos' [ngClass]="{'aprovado':a.nota>=7,
+                                             'reprovado':a.nota<4,
+                                             'final':a.nota>=4 && a.nota<7 }">{{a.nome}} ({{a.nota}})</li> 
+</ul>

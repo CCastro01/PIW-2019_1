@@ -1,0 +1,26 @@
+.teste1{
+    font-family: 'Courier New', Courier, monospace;
+    background-color:darkblue;
+    margin-right: 1em;
+}
+
+.teste2{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:burlywood;
+    margin-right: 1em;
+}
+
+.reprovado{
+    color: red;
+    font-weight: bold;
+}
+
+.final{
+    color: yellow;
+    font-weight: bold;
+}
+
+.aprovado{
+    color: green;
+    font-weight: bold;
+}

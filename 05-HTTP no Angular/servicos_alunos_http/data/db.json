@@ -1,0 +1,28 @@
+{
+  "alunos": [
+    {
+      "nome": "Jefferson de Carvalho Siva",
+      "login": "jeff",
+      "ira": 10,
+      "id": 1
+    },
+    {
+      "nome": "Thomas",
+      "ira": 10,
+      "login": "tom",
+      "id": 5
+    },
+    {
+      "nome": "Ramiro",
+      "ira": 5,
+      "login": "ram",
+      "id": 6
+    },
+    {
+      "nome": "Mestre Yoda",
+      "login": "yoda",
+      "ira": 3,
+      "id": 7
+    }
+  ]
+}

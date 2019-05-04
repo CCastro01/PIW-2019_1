@@ -1,0 +1,18 @@
+<div class="form-group" style="margin-top: 1em;">
+  <div class="row">
+    <div class="col-1"><label>Nome</label></div>
+    <div class="col-11"><input type="text" class="form-control" #nomeInput></div>
+  </div>
+  <div class="row" style="margin-top: 1em;">
+    <div class="col-12"> 
+      <textarea class="form-control" #postTextArea></textarea>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" style="margin-top: 1em;" (click)="addPost(nomeInput.value, postTextArea.value);">Enviar</button>
+</div>
+
+<div class="row" *ngFor="let p of posts">
+  <div class="col-12">
+      <app-post [postIn]="p" (recebeuLike)="contabilizarLike($event)"></app-post> 
+  </div>
+</div>

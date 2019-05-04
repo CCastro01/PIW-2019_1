@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Login</h1>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="login">Usuário</label>
+      <input type="text" class="form-control" name="login" id="login" required [(ngModel)]="usuario.login"
+        #login="ngModel">
+      <div [hidden]="login.valid || login.pristine" class="alert alert-danger">
+        Login é obrigatório!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" class="form-control" name="senha" id="senha" required [(ngModel)]="usuario.senha"
+        #senha="ngModel">
+      <div [hidden]="senha.valid || senha.pristine" class="alert alert-danger">
+        Senha é obrigatório!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>

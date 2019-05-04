@@ -1,0 +1,4 @@
+<h1>Listar Produtos</h1>
+<ul *ngFor="let p of produtos">
+  <li>ID: {{p.id}} - Nome: {{p.nome}} <a [routerLink] = "['edit',p.id,p.nome]">EDITAR</a> </li>
+</ul>
