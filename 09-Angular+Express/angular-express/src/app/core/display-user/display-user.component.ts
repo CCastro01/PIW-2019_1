@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { User } from './../../models/User';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,8 +11,8 @@ export class DisplayUserComponent implements OnInit {
 
   user:User;
 
-  constructor() {
-    this.user = new User();
+  constructor(private userService:UserService) {
+    this.user = this.userService.getUser();
    }
 
   ngOnInit() {
