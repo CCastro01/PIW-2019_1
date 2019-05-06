@@ -20,7 +20,11 @@ export class InputUserComponent implements OnInit {
 
   onSubmit(){
     console.log(JSON.stringify(this.user));
-    this.userService.setUser(this.user);
+    this.userService.setUser(this.user).subscribe(
+      (res:User)=>{
+        console.log(JSON.stringify(res));
+      }
+    );
   }
 
 }

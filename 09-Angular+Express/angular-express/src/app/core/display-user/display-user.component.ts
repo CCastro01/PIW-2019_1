@@ -9,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayUserComponent implements OnInit {
 
-  user:User;
+  user:User = new User();
 
   constructor(private userService:UserService) {
-    this.user = this.userService.getUser();
+    this.userService.getUser().subscribe(
+      (res:User)=>{
+        this.user = res;
+      }
+    );
    }
 
   ngOnInit() {
