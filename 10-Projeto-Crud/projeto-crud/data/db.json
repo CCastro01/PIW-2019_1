@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "login": "jeff",
+      "firstName": "Jefferson de Carvalho",
+      "email": "jeffersoncarvalho@gmail.com",
+      "zipcode": "60040-206",
+      "lastName": "Silva",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "login": "tom",
+      "firstName": "Thomas",
+      "lastName": "de Oliveira",
+      "email": "thomas@ufc.br",
+      "zipcode": "60411-205",
+      "password": "456",
+      "id": 2
+    },
+    {
+      "login": "fulo",
+      "firstName": "Fulano",
+      "lastName": "Alvez Teixeira",
+      "email": "fulano@hotmail.br",
+      "zipcode": "60411-000",
+      "password": "qwe",
+      "id": 3
+    }
+  ]
+}
