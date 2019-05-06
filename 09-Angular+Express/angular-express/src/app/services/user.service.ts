@@ -1,10 +1,10 @@
 import { User } from './../models/User';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnDestroy{
 
 
   constructor() { 
@@ -19,4 +19,9 @@ export class UserService {
     if(userJson==null) return null;
     return JSON.parse(userJson)
   }
+
+  ngOnDestroy(){
+    localStorage.clear();
+  }
+
 }
