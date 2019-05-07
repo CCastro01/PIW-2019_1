@@ -30,10 +30,6 @@ export class LoginUserComponent implements OnInit {
           }
         }
       );
-    
-    /*if(this.authenticationService.login(this.user.login, this.user.password)!=null){
-      this.router.navigate(['users/list']);
-    }*/
   }
 
 }
