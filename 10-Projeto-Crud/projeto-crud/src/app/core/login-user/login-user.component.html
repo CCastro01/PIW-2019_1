@@ -8,7 +8,7 @@
     [(ngModel)]="user.login" #login="ngModel" required>
     
     <div [hidden]="login.valid || login.pristine" class="alert alert-danger mt-1">
-      <div>Login is required.</div>
+      <div [hidden]="!login.errors['required']">Login is required.</div>
     </div>
   </div>
 

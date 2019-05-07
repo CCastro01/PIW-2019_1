@@ -47,6 +47,26 @@ class UserService{
         return false;
     }
 
+    static retrieve(id){
+        
+        for( let i = 0; i < users.length; i++){ 
+            if(users[i].id == id){
+                return [users[i]];
+            }
+        }
+        return [];
+    }
+
+    static retrieveByLogin(login){
+        
+        for( let i = 0; i < users.length; i++){ 
+            if(users[i].login == login){
+                return [users[i]];
+            }
+        }
+        return [];
+    }
+
 }
 
 module.exports = UserService;
