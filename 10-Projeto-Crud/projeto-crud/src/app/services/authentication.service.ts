@@ -1,7 +1,8 @@
-import { User } from '../models/user.model';
-import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
+import { User } from '../models/user.model';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class AuthenticationService {
   logout(){
     localStorage.removeItem("logged_user");
     this.loggedUserBehaviourSubject.next(null);
+  }
+
+  getLoogedValue():User{
+    return this.loggedUserBehaviourSubject.value;
   }
 }

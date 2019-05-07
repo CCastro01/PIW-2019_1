@@ -1,21 +1,30 @@
 <h2>Login</h2>
 <hr>
-<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
   
   <div class="form-group">
     <label for="login">Login</label>
     <input type="text" class="form-control" name="login" id="login"
-    [(ngModel)]="user.login"> 
+    [(ngModel)]="user.login" #login="ngModel" required>
+    
+    <div [hidden]="login.valid || login.pristine" class="alert alert-danger mt-1">
+      <div>Login is required.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" name="password" id="password"
-      [(ngModel)]="user.password">
+      [(ngModel)]="user.password" #password="ngModel" required>
+
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger mt-1">
+        <div>Password is required.</div>
+      </div>
   </div>
 
   <div class="form-group">
       <button type="submit" class="btn btn-primary">Login</button>
+      <a routerLink="users/register" class="ml-2">Register</a>
   </div>
 
 

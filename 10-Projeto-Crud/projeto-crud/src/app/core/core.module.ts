@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +19,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule
+    ToastrModule.forRoot(),
+    RouterModule
   ]
 })
 export class CoreModule { }
