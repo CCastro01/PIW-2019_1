@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ export class LoginUserComponent implements OnInit {
 
   user:User;
 
-  constructor(private userService:UserService,
+  constructor(private  authenticationService:AuthenticationService,
               private router:Router) {
     this.user = new User();
    }
@@ -21,13 +22,18 @@ export class LoginUserComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userService.retrieveByLogin(this.user.login).subscribe(
-      (res:User[])=>{
-        this.user = res[0];
-        sessionStorage.setItem("logged_user",JSON.stringify(this.user));
-        this.router.navigate(['users/list']);
-      }
-    );
+    this.authenticationService.login(this.user.login, this.user.password)
+      .then(
+        (res:number)=>{
+          if(res==2){
+            this.router.navigate(['users/list']);
+          }
+        }
+      );
+    
+    /*if(this.authenticationService.login(this.user.login, this.user.password)!=null){
+      this.router.navigate(['users/list']);
+    }*/
   }
 
 }

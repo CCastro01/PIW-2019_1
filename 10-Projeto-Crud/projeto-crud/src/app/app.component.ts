@@ -1,21 +1,30 @@
+import { AuthenticationService } from './services/authentication.service';
 import { User } from './models/user.model';
 import { Component, OnDestroy, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges{
+export class AppComponent {
 
   loggedUser:User = null;
 
-  constructor(){
-    this.loggedUser = JSON.parse(sessionStorage.getItem("logged_user"));
-    console.log(JSON.stringify(this.loggedUser));
+  constructor(private authenticationService:AuthenticationService,
+              private router:Router){
+    this.authenticationService.loggedUserObservable.subscribe(
+      (u:User)=>{
+        this.loggedUser = u;
+      }
+    );
+  }
+
+  logout(){
+    this.authenticationService.logout();
+    this.router.navigate([""]);
   }
   
-  ngOnChanges(){
-    console.log("test");
-  }
+   
 }

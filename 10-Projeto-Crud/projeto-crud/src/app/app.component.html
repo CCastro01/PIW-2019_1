@@ -6,7 +6,7 @@
   </div>
   <div class="collapse navbar-collapse justify-content-end" *ngIf="loggedUser!=null ">
     <span style="color: white; font-weight: bold;">Hello, {{loggedUser.firstName}}!</span>
-    <a class="nav-item nav-link" routerLink="">Logout</a>
+    <button class="btn btn-secondary ml-2" (click)="logout()">Logout</button>
   </div>
 </nav>
 
