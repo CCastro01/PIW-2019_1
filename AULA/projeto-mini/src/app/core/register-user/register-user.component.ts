@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { User } from './../../models/User';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class RegisterUserComponent implements OnInit {
 
   user:User;
 
-  constructor() {
+  constructor(private userService:UserService) {
     this.user = new User();
   }
 
@@ -18,7 +19,7 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit(){
-   console.log(JSON.stringify(this.user)); 
+    this.userService.register(this.user);
   }
 
 }
