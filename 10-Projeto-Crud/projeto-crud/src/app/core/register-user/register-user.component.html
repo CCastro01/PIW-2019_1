@@ -1,41 +1,60 @@
 <h2>Register User</h2>
 <hr>
-<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+<form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
   
   <div class="form-group">
     <label for="login">Login</label>
     <input type="text" class="form-control" name="login" id="login"
-    [(ngModel)]="user.login">
+    [(ngModel)]="user.login" #login="ngModel" required>
+
+    <div *ngIf="login.invalid && !login.pristine" class="alert alert-danger mt-1">
+        <div *ngIf="login.errors['required']">Login is required.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" name="firstName" id="firstName"
-      [(ngModel)]="user.firstName">
+      [(ngModel)]="user.firstName"  #firstName="ngModel" required>
+    <div *ngIf="firstName.invalid && !firstName.pristine" class="alert alert-danger mt-1">
+        <div *ngIf="firstName.errors['required']">First Name is required.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="lastName">Last Name</label>
       <input type="text" class="form-control" name="lastName" id="lastName"
-      [(ngModel)]="user.lastName">
+      [(ngModel)]="user.lastName"  #lastName="ngModel" required>
+    <div *ngIf="lastName.invalid && !lastName.pristine" class="alert alert-danger mt-1" >
+        <div *ngIf="lastName.errors['required']">Last Name is required.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="email">E-mail</label>
       <input type="text" class="form-control" name="email" id="email"
-      [(ngModel)]="user.email">
+      [(ngModel)]="user.email"  #email="ngModel" required email>
+    <div *ngIf="email.invalid && !email.pristine" class="alert alert-danger mt-1" >
+        <div *ngIf="email.errors['required']">E-mail is required.</div>
+        <div *ngIf="email.errors['email']">Must be a valid e-mail address.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="zipcode">Zip Code</label>
       <input type="text" class="form-control" name="zipcode" id="zipcode"
-      [(ngModel)]="user.zipcode">
+      [(ngModel)]="user.zipcode"  #zipcode="ngModel" required pattern="^[0-9]{5}(?:-[0-9]{3})?$"
+       placeholder="00000-000" onkeypress="mascara(this,'#####-###')" maxlength="9">
+    <div *ngIf="zipcode.invalid && !zipcode.pristine" class="alert alert-danger mt-1" >
+        <div *ngIf="zipcode.errors['required']">Zipcode is required.</div>
+        <div *ngIf="zipcode.errors['pattern']">Must be a valid zipcode.</div>
+    </div>
   </div>
 
   <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" name="password" id="password"
-      [(ngModel)]="user.password">
+      [(ngModel)]="user.password"  #password="ngModel">
   </div>
 
   <div class="form-group">

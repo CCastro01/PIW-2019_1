@@ -1,6 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user.model';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register-user',
@@ -11,14 +14,20 @@ export class RegisterUserComponent implements OnInit {
 
   user:User;
 
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService,
+              private toasty:ToastrService) {
     this.user = new User();
    }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit(registerForm:NgForm){
+    if(registerForm.invalid){
+      this.toasty.error("All fields are required.");
+      return;
+    }
+
     console.log(JSON.stringify(this.user));
     if(this.user!=null) this.add();
   }
@@ -31,4 +40,7 @@ export class RegisterUserComponent implements OnInit {
     );
   }
 
+ 
+
 }
+
