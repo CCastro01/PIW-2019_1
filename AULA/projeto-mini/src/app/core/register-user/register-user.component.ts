@@ -19,7 +19,11 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userService.register(this.user);
+    this.userService.register(this.user).subscribe(
+      (res:User)=>{
+        console.log(`User id ${res.id} added!`)
+      }
+    );
   }
 
 }

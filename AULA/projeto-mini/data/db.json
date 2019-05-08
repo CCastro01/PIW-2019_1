@@ -1,5 +1,13 @@
 {
-    "users":[
-        
-    ]
+  "users": [
+    {
+      "login": "jeff",
+      "firstName": "Jefferson de Carvalho",
+      "email": "jeffersoncarvalho@gmail.com",
+      "zipcode": "60040-206",
+      "lastName": "SILVA",
+      "password": "1234567",
+      "id": 1
+    }
+  ]
 }
