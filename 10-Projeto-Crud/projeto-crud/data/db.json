@@ -26,6 +26,33 @@
       "zipcode": "60411-000",
       "password": "qwe",
       "id": 3
+    },
+    {
+      "login": "fulo",
+      "firstName": "Fulano",
+      "lastName": "Alvez Teixeira",
+      "email": "fulano@hotmail.br",
+      "zipcode": "60411-000",
+      "password": "qwe",
+      "id": 3
+    },
+    {
+      "login": "fulo",
+      "firstName": "Fulano",
+      "lastName": "Alvez Teixeira",
+      "email": "fulano@hotmail.br",
+      "zipcode": "60411-000",
+      "password": "qwe",
+      "id": 3
+    },
+    {
+      "login": "fulo",
+      "firstName": "Fulano",
+      "lastName": "Alvez Teixeira",
+      "email": "fulano@hotmail.br",
+      "zipcode": "60411-000",
+      "password": "qwe",
+      "id": 3
     }
   ]
 }
