@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -14,7 +15,8 @@ export class ListUserComponent implements OnInit {
   users:User[];
 
   constructor(private userService:UserService,
-              private router:Router) { 
+              private router:Router,
+              private toasty:ToastrService) { 
     this.users = [];
   }
 
@@ -31,10 +33,16 @@ export class ListUserComponent implements OnInit {
   }
 
   delete(id:number){
+
+    if(!confirm("Are you sure?")){
+      return;
+    }
+
     this.userService.delete(id).subscribe(
       (res:any)=>{
         console.log(`User id ${id} deleted!`);
         this.list();
+        this.toasty.success(`User id ${id} deleted!` )
       },
       (err:any)=>{
         console.log("ERROR",err);

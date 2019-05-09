@@ -32,7 +32,7 @@ export class LoginUserComponent implements OnInit {
     if(loginForm.invalid){
       this.toasty.error("All fields are required.");
       this.router.navigate([""]);
-      return;
+      return; 
     }
 
     this.authenticationService.login(this.user.login, this.user.password)
