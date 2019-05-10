@@ -1,3 +1,4 @@
+import { EditUserComponent } from './core/edit-user/edit-user.component';
 import { ListUserComponent } from './core/list-user/list-user.component';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,8 @@ import { RegisterUserComponent } from './core/register-user/register-user.compon
 const routes:Routes = [
   {path:'',component:RegisterUserComponent},
   {path:'list/user',component:ListUserComponent},
-  {path:'register/user',component:RegisterUserComponent}
+  {path:'register/user',component:RegisterUserComponent},
+  {path:'edit/user/:id',component:EditUserComponent}
 ];
 
 @NgModule({
