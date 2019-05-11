@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EditUserComponent implements OnInit {
 
   user:User;
+  
   constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {

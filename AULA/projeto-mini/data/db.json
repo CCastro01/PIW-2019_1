@@ -8,6 +8,15 @@
       "lastName": "Sales",
       "password": "456123",
       "id": 2
+    },
+    {
+      "login": "jeff",
+      "firstName": "Jefferson de Carvalho",
+      "email": "jeffersoncarvalho@gmail.com",
+      "zipcode": "60040-206",
+      "lastName": "SILVA",
+      "password": "123",
+      "id": 3
     }
   ]
 }
