@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="loggedUser">
   <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="home">Home</a>
-    <a class="nav-item nav-link" routerLink="users/list">List</a>
+    <a class="nav-item nav-link" [routerLink]="['/home']">Home</a>
+    <a class="nav-item nav-link" [routerLink]="['/users/list']">List</a>
   </div>
   <div class="collapse navbar-collapse justify-content-end">
     <span style="color: white; font-weight: bold;">Hello, {{loggedUser.firstName}}!</span>

@@ -51,10 +51,10 @@ class UserService{
         
         for( let i = 0; i < users.length; i++){ 
             if(users[i].id == id){
-                return [users[i]];
+                return users[i];
             }
         }
-        return [];
+        return {};
     }
 
     static retrieveByLogin(login){

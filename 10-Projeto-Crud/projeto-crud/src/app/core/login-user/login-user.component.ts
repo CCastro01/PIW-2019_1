@@ -40,6 +40,8 @@ export class LoginUserComponent implements OnInit {
         (res:number)=>{
           if(res==2){
             this.router.navigate(['users/list']);
+          }else{
+            this.toasty.error("Login and/or password incorrect.");
           }
         }
       );

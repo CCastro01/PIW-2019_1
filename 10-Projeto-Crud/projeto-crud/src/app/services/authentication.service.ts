@@ -10,14 +10,14 @@ import { UserService } from './user.service';
 export class AuthenticationService {
 
   private loggedUserBehaviourSubject:BehaviorSubject<User>;
-  public loggedUserObservable: Observable<User>;
+  public loggedUserObservable: Observable<User>; //usado apenas pelo app.component.ts para decidir se renderiza ou não o navbar.
 
   constructor(private userService:UserService) {
     this.loggedUserBehaviourSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem("logged_user")));
     this.loggedUserObservable = this.loggedUserBehaviourSubject.asObservable();
   }
 
-  async login(login:string,password:string){
+  async login(login:string,password:string):Promise<number>{ // o método tem que ser síncrono para que o login só vá adiante depois que a requisição der algum resultado.
     let out:number = 0;
     await this.userService.retrieveByLogin(login)
       .toPromise()

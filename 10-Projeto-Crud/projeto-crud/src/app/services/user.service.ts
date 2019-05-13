@@ -16,27 +16,33 @@ export class UserService {
    }
 
   add(user:User){
-    return this.httpClient.post(this.url,user);
+    //return this.httpClient.post(this.url,user); //json-server
+    return this.httpClient.post(`${this.url}/register`,user); //express
   }
 
   retrieve(id:number){
-    return this.httpClient.get(`${this.url}/${id}`);
+    //return this.httpClient.get(`${this.url}/${id}`); //json-server
+    return this.httpClient.get(`${this.url}/retrieve/${id}`); //express
   }
 
   list(){
-    return this.httpClient.get(this.url);
+    //return this.httpClient.get(this.url); //json-server
+    return this.httpClient.get(`${this.url}/list`); //express
   }
 
   update(user:User){
-    return this.httpClient.put(`${this.url}/${user.id}`,user);
+    //return this.httpClient.put(`${this.url}/${user.id}`,user); //json-server
+    return this.httpClient.put(`${this.url}/update/${user.id}`,user); // express
   }
 
   delete(id:number){
-    return this.httpClient.delete(`${this.url}/${id}`);
+    //return this.httpClient.delete(`${this.url}/${id}`); //json-server
+    return this.httpClient.delete(`${this.url}/delete/${id}`); //express
   }
 
   retrieveByLogin(login:string){
-    return this.httpClient.get(`${this.url}/?login=${login}`);
+    //return this.httpClient.get(`${this.url}/?login=${login}`);
+    return this.httpClient.get(`${this.url}/retrieve/login/${login}`);
   }
 
 }
