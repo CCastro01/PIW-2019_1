@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var userService = require('../services/user.service');
 
-/* GET users listing. */
 router.get('/list', function(req, res, next) {
   return res.json(userService.list());
 });

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { User } from './../models/user.model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,24 +16,24 @@ export class UserService {
     this.url = "http://localhost:3000/users";
    }
 
-  add(user:User){
+  add(user:User):Observable<User>{
     //return this.httpClient.post(this.url,user); //json-server
-    return this.httpClient.post(`${this.url}/register`,user); //express
+    return this.httpClient.post<User>(`${this.url}/register`,user); //express
   }
 
-  retrieve(id:number){
+  retrieve(id:number):Observable<User>{
     //return this.httpClient.get(`${this.url}/${id}`); //json-server
-    return this.httpClient.get(`${this.url}/retrieve/${id}`); //express
+    return this.httpClient.get<User>(`${this.url}/retrieve/${id}`); //express
   }
 
-  list(){
+  list():Observable<User[]>{
     //return this.httpClient.get(this.url); //json-server
-    return this.httpClient.get(`${this.url}/list`); //express
+    return this.httpClient.get<User[]>(`${this.url}/list`); //express
   }
 
-  update(user:User){
+  update(user:User):Observable<User>{
     //return this.httpClient.put(`${this.url}/${user.id}`,user); //json-server
-    return this.httpClient.put(`${this.url}/update/${user.id}`,user); // express
+    return this.httpClient.put<User>(`${this.url}/update/${user.id}`,user); // express
   }
 
   delete(id:number){
@@ -40,9 +41,9 @@ export class UserService {
     return this.httpClient.delete(`${this.url}/delete/${id}`); //express
   }
 
-  retrieveByLogin(login:string){
-    //return this.httpClient.get(`${this.url}/?login=${login}`);
-    return this.httpClient.get(`${this.url}/retrieve/login/${login}`);
+  retrieveByLogin(login:string):Observable<User[]>{
+    //return this.httpClient.get(`${this.url}/?login=${login}`); //json-server
+    return this.httpClient.get<User[]>(`${this.url}/retrieve/login/${login}`); //express
   }
 
 }
