@@ -31,4 +31,8 @@ export class UserService {
     return this.httpClient.put(`${this.url}/${user.id}`,user);
   }
 
+  retrieveByLogin(login:string){
+    return this.httpClient.get(`${this.url}/?login=${login}`);
+  }
+
 }

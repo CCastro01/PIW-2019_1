@@ -8,9 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './core/register-user/register-user.component';
+import { LoginUserComponent } from './core/login-user/login-user.component';
 
 const routes:Routes = [
-  {path:'',component:RegisterUserComponent},
+  {path:'',component:LoginUserComponent},
   {path:'list/user',component:ListUserComponent},
   {path:'register/user',component:RegisterUserComponent},
   {path:'edit/user/:id',component:EditUserComponent}
