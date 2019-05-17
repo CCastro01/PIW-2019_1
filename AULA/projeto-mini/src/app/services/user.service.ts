@@ -20,6 +20,10 @@ export class UserService {
   }
 
   delete(id:number){
-    return this.httpClient.delete(`${this.url}/${id}`)
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+  retrieveById(id:number){
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 }

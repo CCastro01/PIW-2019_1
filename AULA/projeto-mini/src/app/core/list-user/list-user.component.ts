@@ -39,6 +39,7 @@ export class ListUserComponent implements OnInit {
   }
 
   edit(id:number){
+    //nevegação imperativa
     this.router.navigate(['edit/user',id]);
   }
 

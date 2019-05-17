@@ -25,6 +25,7 @@ export class EditUserComponent implements OnInit {
     let id = this.activatedRoute.snapshot.params["id"];
     this.userService.retrieve(id).subscribe(
       (res:User)=>{
+        console.log(res);
         this.user = res;
       }
     );

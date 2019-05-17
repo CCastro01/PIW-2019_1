@@ -33,7 +33,8 @@ export class UserService {
 
   update(user:User):Observable<User>{
     //return this.httpClient.put(`${this.url}/${user.id}`,user); //json-server
-    return this.httpClient.put<User>(`${this.url}/update/${user.id}`,user); // express
+    //return this.httpClient.put<User>(`${this.url}/update/${user.id}`,user); // express
+    return this.httpClient.put<User>(`${this.url}/update/${user._id}`,user); // mongo
   }
 
   delete(id:number){

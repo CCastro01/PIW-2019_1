@@ -35,7 +35,9 @@ export class RegisterUserComponent implements OnInit {
   add(){
     this.userService.add(this.user).subscribe(
       (res:User)=>{
+        console.log(`User id:${res._id} added!`);
         console.log(`User id:${res.id} added!`);
+        this.toasty.success("User added.")
       }
     );
   }

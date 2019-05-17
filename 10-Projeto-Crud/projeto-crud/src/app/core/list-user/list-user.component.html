@@ -9,11 +9,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
-      <th scope="row">{{user.id}}</th>
+      <th scope="row">{{user._id}}</th>
       <td>{{user.firstName}}</td>
       <td align="right">
-        <button class="btn btn-primary mr-2" (click)="edit(user.id)">Edit</button>
-        <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
+        <button class="btn btn-primary mr-2" (click)="edit(user._id)">Edit</button>
+        <button class="btn btn-danger" (click)="delete(user._id)">Delete</button>
       </td>
     </tr>
   </tbody>

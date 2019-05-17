@@ -29,7 +29,6 @@ class UserService{
         );
     }
 
-    //retorna true or false
     static delete(req,res){
         UserModel.findByIdAndRemove(req.params.id).then(
             (user)=>{
@@ -50,12 +49,11 @@ class UserService{
     //retorn um vetor de user
     static retrieveByLogin(req,res){
         UserModel.find({'login':req.params.login}).then(
-            (user)=>{
-                res.status(201).json(user);
+            (users)=>{
+                res.status(201).json(users);
             }
         );
     }
-
 
 }
 

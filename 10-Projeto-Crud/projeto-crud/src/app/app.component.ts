@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
               private router:Router){}
 
   ngOnInit(){
+    this.authenticationService.logout();
     this.authenticationService.loggedUserObservable.subscribe(
       (u:User)=>{
         this.loggedUser = u;

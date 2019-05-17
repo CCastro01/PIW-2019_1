@@ -1,4 +1,6 @@
 export class User{
+
+    _id:any;
     id:number;
     login:string;
     firstName:string;
