@@ -4,9 +4,8 @@ let user = null;
 
 class UserService{
 
-    static setUser(data){
-        console.log("set");
-        user = new UserModel(data.firstName,data.lastName,data.email,data.zipCode,data.password);
+    static setUser(data){ 
+        user = new UserModel(data.firstName,data.lastName,data.login,data.email,data.zipCode,data.password);
         return user;
     }
 
