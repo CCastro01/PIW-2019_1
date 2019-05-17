@@ -1,6 +1,6 @@
 <h2>Edit User</h2>
 <hr>
-<form>
+<form (ngSubmit)="onSubmit()"> 
     
     <div class="form-group">
       <label for="login">Login</label>
@@ -38,7 +38,7 @@
       [(ngModel)]="user.password">
     </div>
   
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Update</button>
   
   </form>
   

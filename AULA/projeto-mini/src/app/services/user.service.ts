@@ -26,4 +26,9 @@ export class UserService {
   retrieveById(id:number){
     return this.httpClient.get(`${this.url}/${id}`);
   }
+
+  update(user:User){
+    return this.httpClient.put(`${this.url}/${user.id}`,user);
+  }
+
 }

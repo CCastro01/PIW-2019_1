@@ -1,7 +1,7 @@
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/User';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,7 +13,8 @@ export class EditUserComponent implements OnInit {
   user:User = new User();
   
   constructor(private activatedRoute:ActivatedRoute,
-              private userService:UserService) { }
+              private userService:UserService,
+              private router:Router) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params["id"];
@@ -25,7 +26,15 @@ export class EditUserComponent implements OnInit {
         this.user = res;
       }
     );
+  }
 
+  onSubmit(){
+    this.userService.update(this.user).subscribe(
+      (res:User)=>{
+        console.log(`User id ${res.id} updated!`);
+        this.router.navigate(["list/user"]);
+      },
+    );
   }
 
 }
