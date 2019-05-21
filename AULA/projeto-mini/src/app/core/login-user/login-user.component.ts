@@ -18,6 +18,11 @@ export class LoginUserComponent implements OnInit {
               private toasty:ToastrService) { }
 
   ngOnInit() {
+    let userSessionStr = sessionStorage.getItem("user_login");
+    if(userSessionStr){
+      this.user = JSON.parse(userSessionStr);
+      this.router.navigate(["list/user"]);
+    }
   }
 
   onSubmit(){
@@ -26,6 +31,7 @@ export class LoginUserComponent implements OnInit {
         (res:User[])=>{
           if(res.length>0){
             if(res[0].password==this.user.password){
+              sessionStorage.setItem("user_login",JSON.stringify(res[0]));
               this.router.navigate(["list/user"]);
             }else{
               console.log("Invalid password!"); 

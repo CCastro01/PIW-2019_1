@@ -7,6 +7,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [RegisterUserComponent, ListUserComponent, EditUserComponent, LoginUserComponent],
@@ -15,8 +16,8 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
-
+    ToastrModule.forRoot(),
+    RouterModule
   ]
 })
 export class CoreModule { }
