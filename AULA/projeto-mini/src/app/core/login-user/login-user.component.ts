@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/User';
@@ -15,34 +16,18 @@ export class LoginUserComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router:Router,
-              private toasty:ToastrService) { }
+              private toasty:ToastrService,
+              private authUser:AuthUserService) { }
 
   ngOnInit() {
-    let userSessionStr = sessionStorage.getItem("user_login");
-    if(userSessionStr){
-      this.user = JSON.parse(userSessionStr);
+    if(this.authUser.getLoggedUser()){
+      this.user = this.authUser.getLoggedUser();
       this.router.navigate(["list/user"]);
     }
   }
 
   onSubmit(){
-    this.userService.retrieveByLogin(this.user.login)
-      .subscribe(
-        (res:User[])=>{
-          if(res.length>0){
-            if(res[0].password==this.user.password){
-              sessionStorage.setItem("user_login",JSON.stringify(res[0]));
-              this.router.navigate(["list/user"]);
-            }else{
-              console.log("Invalid password!"); 
-              this.toasty.error("Invalid password!") 
-            }
-          }else{
-            console.log("User does not exist!");
-            this.toasty.error("User does not exist!") 
-          }
-        }
-      );
+    this.authUser.login(this.user.login,this.user.password);
   }
 
 }

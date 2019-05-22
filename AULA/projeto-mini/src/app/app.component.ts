@@ -1,3 +1,5 @@
+import { AuthUserService } from './services/auth-user.service';
+import { Router } from '@angular/router';
 import { User } from './models/User';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,20 +12,22 @@ export class AppComponent implements OnInit {
   
   user:User = null;
   
-  constructor(){
+  constructor(private router:Router,
+              private authUserService:AuthUserService){
     
   }
 
   ngOnInit(): void {
-    let userSessionStorage = sessionStorage.getItem("user_login");
-    if(sessionStorage){
-      this.user = JSON.parse(userSessionStorage);
-    }
+    this.authUserService.userObservable.subscribe(
+      (res:User)=>{
+        this.user = res;
+      }
+    );
   }
   
   logout(){
-    sessionStorage.removeItem("user_login");
     this.user = null;
+    this.authUserService.logout();
   }
 
 }
