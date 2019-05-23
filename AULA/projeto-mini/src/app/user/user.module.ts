@@ -9,6 +9,7 @@ import { RegisterUserComponent } from '../user/register-user/register-user.compo
 import { ListUserComponent } from '../user/list-user/list-user.component';
 import { EditUserComponent } from '../user/edit-user/edit-user.component';
 import { LoginUserComponent } from '../user/login-user/login-user.component';
+import { routing } from './user.routing'; 
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoginUserComponent } from '../user/login-user/login-user.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    RouterModule
+    RouterModule,
+    routing
   ]
 })
 export class UserModule { }

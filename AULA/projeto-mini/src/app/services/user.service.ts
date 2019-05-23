@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,28 +12,28 @@ export class UserService {
 
   constructor(private httpClient:HttpClient) { }
 
-  register(user:User){
-    return this.httpClient.post(this.url,user); //Observable
+  register(user:User):Observable<User>{
+    return this.httpClient.post<User>(this.url,user);  
   }
 
-  list(){
-    return this.httpClient.get(this.url); //Observable
+  list():Observable<User[]>{
+    return this.httpClient.get<User[]>(this.url);  
   }
 
   delete(id:number){
     return this.httpClient.delete(`${this.url}/${id}`);
   }
 
-  retrieveById(id:number){
-    return this.httpClient.get(`${this.url}/${id}`);
+  retrieveById(id:number):Observable<User>{
+    return this.httpClient.get<User>(`${this.url}/${id}`);
   }
 
-  update(user:User){
-    return this.httpClient.put(`${this.url}/${user.id}`,user);
+  update(user:User):Observable<User>{
+    return this.httpClient.put<User>(`${this.url}/${user.id}`,user);
   }
 
-  retrieveByLogin(login:string){
-    return this.httpClient.get(`${this.url}/?login=${login}`);
+  retrieveByLogin(login:string):Observable<User[]>{
+    return this.httpClient.get<User[]>(`${this.url}/?login=${login}`);
   }
 
 }
