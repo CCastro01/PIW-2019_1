@@ -30,6 +30,10 @@ export class ListUserComponent implements OnInit {
   }
 
   delete(id:number){
+    if(!confirm("Are you sure?")){
+      return;
+    } 
+    
     this.userService.delete(id).subscribe(
       (res:any)=>{
         console.log(`User id ${id} deleted!`);

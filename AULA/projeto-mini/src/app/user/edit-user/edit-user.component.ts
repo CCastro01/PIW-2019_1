@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +16,8 @@ export class EditUserComponent implements OnInit {
   
   constructor(private activatedRoute:ActivatedRoute,
               private userService:UserService,
-              private router:Router) { }
+              private router:Router,
+              private toasty:ToastrService) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params["id"];
@@ -25,7 +28,13 @@ export class EditUserComponent implements OnInit {
     );
   }
 
-  onSubmit(){
+  onSubmit(editForm:NgForm){
+
+    if(editForm.invalid){
+      this.toasty.error("All fields are required.");
+      return;
+    }
+
     this.userService.update(this.user).subscribe(
       (res:User)=>{
         console.log(`User id ${res.id} updated!`);

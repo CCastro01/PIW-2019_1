@@ -7,6 +7,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Login</th>
+      <th scope="col">E-mail</th>
       <th scope="col">Password</th>
       <th scope="col"></th>
     </tr>
@@ -17,10 +18,11 @@
       <th scope="row">{{u.id}}</th>
       <td>{{u.firstName}}</td>
       <td>{{u.login}}</td>
+      <td>{{u.email}}</td>
       <td>{{u.password}}</td>
       <td align="right">
         <button class="btn btn-primary" (click)="edit(u.id)">Edit</button>
-        <button class="btn btn-danger ml-3" (click)="delete(u.id)">Delete</button>
+        <button class="btn btn-danger ml-3" (click)="delete(u.id)">Del</button>
       </td>
     </tr>
   </tbody>

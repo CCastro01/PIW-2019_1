@@ -1,9 +1,9 @@
 import { AuthUserService } from '../../services/auth-user.service';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-user',
@@ -15,7 +15,8 @@ export class LoginUserComponent implements OnInit {
   user:User = new User();
 
   constructor(private router:Router,
-              private authUser:AuthUserService) { }
+              private authUser:AuthUserService,
+              private toasty:ToastrService) { }
 
   ngOnInit() {
     if(this.authUser.getLoggedUser()){
@@ -24,7 +25,12 @@ export class LoginUserComponent implements OnInit {
     }
   }
 
-  onSubmit(){
+  onSubmit(registerForm:NgForm){
+    if(registerForm.invalid){
+      this.toasty.error("All fields are required.");
+      return;
+    }
+
     this.authUser.login(this.user.login,this.user.password);
   }
 

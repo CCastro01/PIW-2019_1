@@ -58,7 +58,7 @@
     <input type="text" class="form-control" name="zipcode" id="zipcode"
     [(ngModel)]="user.zipcode"
     #zipcode="ngModel" required pattern="^[0-9]{5}(?:-[0-9]{3})?$"
-    placeholder="00000-000" onkeypress="input_maks(this,'#####-###')" maxlength="9"
+    placeholder="00000-000" onkeypress="input_mask(this,'#####-###')" maxlength="9"
     [ngClass]="{ 'is-invalid': registerForm.submitted && zipcode.invalid }">
 
     <div *ngIf="zipcode.invalid && registerForm.submitted" class="text-danger mt-1" >
