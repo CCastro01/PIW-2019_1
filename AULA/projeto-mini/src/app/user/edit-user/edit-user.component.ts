@@ -1,5 +1,5 @@
-import { UserService } from './../../services/user.service';
-import { User } from './../../models/User';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,11 +18,8 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params["id"];
-    //console.log("ID "+id);
-
     this.userService.retrieveById(id).subscribe(
       (res:User)=>{
-        //console.log(res);
         this.user = res;
       }
     );

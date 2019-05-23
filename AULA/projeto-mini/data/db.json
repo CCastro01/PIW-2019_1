@@ -5,7 +5,7 @@
       "firstName": "Fulano da Silva",
       "email": "fulano@gmail.com",
       "zipcode": "60040-562",
-      "lastName": "Sales",
+      "lastName": "Sales Sauro",
       "password": "456123",
       "id": 2
     },
@@ -17,6 +17,15 @@
       "lastName": "SILVA",
       "password": "123456Ty",
       "id": 3
+    },
+    {
+      "login": "sic",
+      "firstName": "Sicrano",
+      "lastName": "da Silva",
+      "email": "sicrano@gmail.com",
+      "zipcode": "60040-206",
+      "password": "1234Ty",
+      "id": 4
     }
   ],
   "products": [

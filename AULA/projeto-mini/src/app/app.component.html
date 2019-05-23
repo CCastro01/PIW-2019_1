@@ -1,16 +1,7 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="register/user">Register</a>
-    <a class="nav-item nav-link" routerLink="list/user">List</a>
-  </div>
 
-  <div class="collapse navbar-collapse justify-content-end">
-    <span style="color: white; font-weight: bold;">Hello, {{user.firstName}}!</span>
-    <button class="btn btn-secondary ml-2" (click)="logout()">Logout</button>
-  </div>
-</nav>
+<app-menu></app-menu>
 
-<div class="jumbotron">
+<div class="jumbotron" style="margin-bottom: 0;">
   <div class="container">
     <div class="row">
       <div class="col-10 offset-1">
@@ -19,3 +10,6 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>
+

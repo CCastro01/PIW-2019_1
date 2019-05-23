@@ -1,7 +1,7 @@
-import { AuthUserService } from './../../services/auth-user.service';
+import { AuthUserService } from '../../services/auth-user.service';
 import { Router } from '@angular/router';
-import { UserService } from './../../services/user.service';
-import { User } from './../../models/User';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,9 +14,7 @@ export class LoginUserComponent implements OnInit {
 
   user:User = new User();
 
-  constructor(private userService: UserService,
-              private router:Router,
-              private toasty:ToastrService,
+  constructor(private router:Router,
               private authUser:AuthUserService) { }
 
   ngOnInit() {
