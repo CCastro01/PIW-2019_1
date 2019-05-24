@@ -17,23 +17,28 @@ export class UserService {
   }
 
   list():Observable<User[]>{
-    return this.httpClient.get<User[]>(this.url);  
+    //return this.httpClient.get<User[]>(this.url);  //json-server
+    return this.httpClient.get<User[]>(`${this.url}/list`);  
   }
 
   delete(id:number){
-    return this.httpClient.delete(`${this.url}/${id}`);
+    //return this.httpClient.delete(`${this.url}/${id}`); //json-server
+    return this.httpClient.delete(`${this.url}/delete/${id}`);
   }
 
   retrieveById(id:number):Observable<User>{
-    return this.httpClient.get<User>(`${this.url}/${id}`);
+    //return this.httpClient.get<User>(`${this.url}/${id}`); //json-server
+    return this.httpClient.get<User>(`${this.url}/retrieve/${id}`);
   }
 
   update(user:User):Observable<User>{
-    return this.httpClient.put<User>(`${this.url}/${user.id}`,user);
+    //return this.httpClient.put<User>(`${this.url}/${user.id}`,user); //json-server
+    return this.httpClient.put<User>(`${this.url}/update/${user.id}`,user);
   }
 
   retrieveByLogin(login:string):Observable<User[]>{
-    return this.httpClient.get<User[]>(`${this.url}/?login=${login}`);
+    //return this.httpClient.get<User[]>(`${this.url}/?login=${login}`); //json-server
+    return this.httpClient.get<User[]>(`${this.url}/retrieve/login/${login}`);
   }
 
 }
