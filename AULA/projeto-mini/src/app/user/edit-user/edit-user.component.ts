@@ -37,7 +37,7 @@ export class EditUserComponent implements OnInit {
 
     this.userService.update(this.user).subscribe(
       (res:User)=>{
-        console.log(`User id ${res.id} updated!`);
+        console.log(`User id ${res._id} updated!`);
         this.router.navigate(["list/user"]);
       },
     );

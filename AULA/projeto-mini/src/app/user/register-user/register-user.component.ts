@@ -30,7 +30,7 @@ export class RegisterUserComponent implements OnInit {
     }
     this.userService.register(this.user).subscribe(
       (res:User)=>{
-        console.log(`User id ${res.id} added!`)
+        console.log(`User id ${res._id} added!`)
         this.toasty.success(`User ${res.firstName} added!.`);
         this.router.navigate([""]);
       }

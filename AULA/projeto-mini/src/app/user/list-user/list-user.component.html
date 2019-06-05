@@ -15,14 +15,14 @@
   
   <tbody>
     <tr *ngFor="let u of users">
-      <th scope="row">{{u.id}}</th>
+      <th scope="row">{{u._id}}</th>
       <td>{{u.firstName}}</td>
       <td>{{u.login}}</td>
       <td>{{u.email}}</td>
       <td>{{u.password}}</td>
       <td align="right">
-        <button class="btn btn-primary" (click)="edit(u.id)">Edit</button>
-        <button class="btn btn-danger ml-3" (click)="delete(u.id)">Del</button>
+        <button class="btn btn-primary" (click)="edit(u._id)">Edit</button>
+        <button class="btn btn-danger ml-3" (click)="delete(u._id)">Del</button>
       </td>
     </tr>
   </tbody>
