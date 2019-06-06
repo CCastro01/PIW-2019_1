@@ -28,11 +28,16 @@ export class RegisterUserComponent implements OnInit {
       this.toasty.error("All fields are required.");
       return;
     }
+    //teste
+    //delete this.user.login;
     this.userService.register(this.user).subscribe(
       (res:User)=>{
         console.log(`User id ${res._id} added!`)
         this.toasty.success(`User ${res.firstName} added!.`);
         this.router.navigate([""]);
+      },
+      (error:any)=>{
+        console.log(error);
       }
     );
   }
