@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 
 //conexão local
-var mongoDB_URI = 'mongodb://127.0.0.1:27017/relations';
+var mongoDB_URI = 'mongodb://127.0.0.1:27017/relations2';
 mongoose.connect(mongoDB_URI,{useNewUrlParser:true});
 
 //armazena a conexão em uma variável

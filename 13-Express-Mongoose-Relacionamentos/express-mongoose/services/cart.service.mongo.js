@@ -20,7 +20,6 @@ class CartService{
         CartModel.find()
         .populate('user') //nome da propriedade em cart
         .populate('product') //nome da propriedade em cart
-        .exec()
         .then(
             (carts)=>{
                 res.status(201).json(carts);

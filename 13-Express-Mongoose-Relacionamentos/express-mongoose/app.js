@@ -7,6 +7,7 @@ require('./db/mongo.connection');
 
 //router
 var users = require('./routes/user.routes.mongo');
+var addresses = require('./routes/address.routes.mongo');
 var products = require('./routes/product.routes.mongo');
 var carts = require('./routes/cart.routes.mongo');
 
@@ -26,6 +27,7 @@ app.use(function(req, res, next) {
 
 //endpoint para users
 app.use('/users', users);
+app.use('/addresses', addresses);
 app.use('/products', products);
 app.use('/carts', carts);
 

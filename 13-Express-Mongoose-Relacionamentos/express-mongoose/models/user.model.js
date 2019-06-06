@@ -5,7 +5,8 @@ var UserSchema = mongoose.Schema(
     {
         firstName: {type:String, required:true, max:100},
         login: {type:String, required:true, max:100},
-        password: {type:String, required:true, max:20}
+        password: {type:String, required:true, max:20},
+        addresses: [{type:mongoose.Schema.Types.ObjectId,ref:'ADDRESS'}] 
     }
 );
 

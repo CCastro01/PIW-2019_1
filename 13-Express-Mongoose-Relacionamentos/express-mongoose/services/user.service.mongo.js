@@ -17,7 +17,9 @@ class UserService{
 
     //retorna um vetor de users
     static list(req,res){
-        UserModel.find().then(
+        UserModel.find()
+        .populate('addresses')
+        .then(
             (users)=>{
                 res.status(201).json(users);
             }
