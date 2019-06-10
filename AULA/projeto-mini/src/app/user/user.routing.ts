@@ -8,9 +8,10 @@ import { ModuleWithProviders } from '@angular/core';
 
 const routes:Routes = [
     {path:'',component:LoginUserComponent},
-    {path:'list/user',component:ListUserComponent, canActivate: [GuardService]},
-    {path:'register/user',component:RegisterUserComponent},
-    {path:'edit/user/:id',component:EditUserComponent, canActivate: [GuardService]},
+    {path:'login',component:LoginUserComponent},
+    {path:'list',component:ListUserComponent, canActivate: [GuardService]},
+    {path:'register',component:RegisterUserComponent},
+    {path:'edit/:id',component:EditUserComponent, canActivate: [GuardService]},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

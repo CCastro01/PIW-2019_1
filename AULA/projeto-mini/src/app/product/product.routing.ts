@@ -6,9 +6,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { ModuleWithProviders } from '@angular/core';
 
 const routes:Routes = [
-    {path:'list/product',component:ListProductComponent, canActivate: [GuardService]},
-    {path:'register/product',component:RegisterProductComponent},
-    {path:'edit/product/:id',component:EditProductComponent, canActivate: [GuardService]},
+    {path:'list',component:ListProductComponent, canActivate: [GuardService]},
+    {path:'register',component:RegisterProductComponent, canActivate: [GuardService]},
+    {path:'edit/:id',component:EditProductComponent, canActivate: [GuardService]},
     
 ];
 

@@ -19,11 +19,11 @@
     <input type="text" class="form-control" name="price" id="price"
     [(ngModel)]="product.price"
     #price="ngModel" required
-    [ngClass]="{ 'is-invalid': editForm.submitted && price.invalid }" pattern="^\d*(\,\d{2}$)?">
+    [ngClass]="{ 'is-invalid': editForm.submitted && price.invalid }" pattern="^\d*(\.\d{2}$)?">
 
     <div *ngIf="price.invalid && editForm.submitted" class="text-danger mt-1">
         <div *ngIf="price.errors['required']">Price is required.</div>
-        <div *ngIf="price.errors['pattern']">Price must be a valid currency (0,00).</div>
+        <div *ngIf="price.errors['pattern']">Price must be a valid currency (0.00).</div>
     </div>
   </div>
 

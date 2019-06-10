@@ -29,7 +29,7 @@ export class AuthUserService {
             if(res[0].password==password){
               sessionStorage.setItem("user_login",JSON.stringify(res[0]));
               this.userBehaviorSubject.next(res[0]);
-              this.router.navigate(["list/user"]);
+              this.router.navigate(["user/list"]);
             }else{
               console.log("Invalid password!"); 
               //this.toasty.error("Invalid password!") 

@@ -21,7 +21,7 @@ export class LoginUserComponent implements OnInit {
   ngOnInit() {
     if(this.authUser.getLoggedUser()){
       this.user = this.authUser.getLoggedUser();
-      this.router.navigate(["list/user"]);
+      this.router.navigate(["user/list"]);
     }
   }
 

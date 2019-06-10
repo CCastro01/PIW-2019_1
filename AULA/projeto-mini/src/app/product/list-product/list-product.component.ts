@@ -44,7 +44,7 @@ export class ListProductComponent implements OnInit {
 
   edit(id:number){
     //nevegação imperativa
-    this.router.navigate(['edit/product',id]);
+    this.router.navigate(['product/edit',id]);
   }
 
 }

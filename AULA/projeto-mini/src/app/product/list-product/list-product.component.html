@@ -14,13 +14,13 @@
   
   <tbody>
     <tr *ngFor="let p of products">
-      <th scope="row">{{p.id}}</th>
+      <th scope="row">{{p._id}}</th>
       <td>{{p.name}}</td>
       <td>{{p.price}}</td>
       <td>{{p.qty}}</td>
       <td align="right">
-        <button class="btn btn-primary" (click)="edit(p.id)">Edit</button>
-        <button class="btn btn-danger ml-3" (click)="delete(p.id)">Del</button>
+        <button class="btn btn-primary" (click)="edit(p._id)">Edit</button>
+        <button class="btn btn-danger ml-3" (click)="delete(p._id)">Del</button>
       </td>
     </tr>
   </tbody>

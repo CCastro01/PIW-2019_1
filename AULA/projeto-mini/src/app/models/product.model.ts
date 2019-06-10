@@ -1,5 +1,6 @@
 export class Product{
-    id:number;
+    //id:number;
+    _id:any;
     name:string;
     price:number;
     qty:number;

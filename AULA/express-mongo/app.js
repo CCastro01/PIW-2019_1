@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 
 require('./db/mongo.connection');
 
-var users = require('./routes/users.routes.mongo');
+var users = require('./routes/user.routes.mongo');
+var products = require('./routes/product.routes.mongo');
 
 var app = express();
 
@@ -23,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 
-app.use('/users', users);
+app.use('/user', users);
+app.use('/product', products);
+
 
 module.exports = app;
