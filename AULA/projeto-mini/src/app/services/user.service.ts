@@ -44,4 +44,9 @@ export class UserService {
     return this.httpClient.get<User[]>(`${this.url}/retrieve/login/${login}`); //express
   }
 
+  login(login:string,password:string){
+    let inputLogin = {"login":login,"password":password}
+    return this.httpClient.post<User>(`${this.url}/login`,inputLogin); //mongo
+  }
+
 }

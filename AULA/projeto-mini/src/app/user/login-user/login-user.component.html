@@ -20,16 +20,12 @@
         <label for="password">Password</label>
         <input type="password" class="form-control" name="password" id="password"
         [(ngModel)]="user.password"
-        #password="ngModel" required minlength="6" 
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" 
+        #password="ngModel" required minlength="6"
         [ngClass]="{ 'is-invalid': registerForm.submitted && password.invalid }">
 
         <div *ngIf="password.invalid && registerForm.submitted" class="text-danger mt-1" >
           <div *ngIf="password.errors['required']">Password is required.</div>
-          <div *ngIf="password.errors['minlength']">Password must be at least 6 characters.</div>
-          <div *ngIf="password.errors['pattern']">Must be a valid password.</div> 
         </div>
-
       </div>
 
       <button type="submit" class="btn btn-primary">Enter</button>

@@ -26,4 +26,8 @@ router.get('/retrieve/login/:login', function (req, res, next) {
     userService.retrieveByLogin(req, res);
 });
 
+router.post('/login', function (req, res, next) {
+    userService.login(req, res);
+});
+
 module.exports = router;

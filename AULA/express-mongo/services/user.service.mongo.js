@@ -1,12 +1,13 @@
 const UserModel = require('../models/user.model');
-
-
-
+var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
 
 class UserService{
 
     static register(req,res){
-        UserModel.create(req.body).then(
+        let rcvUser =  req.body;
+        rcvUser.password = bcrypt.hashSync(rcvUser.password, 10)
+        UserModel.create(rcvUser).then(
             (user)=>{
                 res.status(201).json(user);
             }
@@ -75,6 +76,39 @@ class UserService{
                 res.status(500).json(error);
             }
         );
+    }
+
+    static login(req,res){
+        let loginForm = req.body;
+        UserModel.findOne({'login':loginForm.login})
+        .then(
+            (user)=>{
+                if(bcrypt.compareSync(loginForm.password,user.password)){
+                    //LOGIN ENCONTRADO E CHAVES BATEM
+                    let token = jwt.sign({user: user}, 'secret');
+                    res.status(201).json({
+                        'firstName':user.firstName,
+                        'lastName': user.lastName,
+                        'login':user.login,
+                        'token':token
+                    });
+                }else{
+                    //LOGIN ENCONTRADO MAS CHAVES NÃO BATEM
+                    res.status(201).json(null);
+                }
+            }
+        )
+        .then(undefined,
+            (err)=>{
+                //ERRO EM CASO DE LOGIN NÃO ENCONTRADO
+                res.status(201).json(null);
+            })
+        .catch(
+            (error)=>{
+                res.status(500).json(error);
+            }
+        );
+
     }
 
 }

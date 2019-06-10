@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthUserService {
   public userObservable: Observable<User>;
 
   constructor(private router:Router,
-              private userService:UserService) { 
+              private userService:UserService,
+              private toasty:ToastrService) { 
               
     this.userBehaviorSubject = new BehaviorSubject<User>(JSON.parse(
       sessionStorage.getItem("user_login")
@@ -22,7 +24,20 @@ export class AuthUserService {
   }
 
   login(login:string, password:string){
-    this.userService.retrieveByLogin(login)
+    this.userService.login(login,password)
+    .subscribe(
+      (res:User)=>{
+        if(res!=null){
+          //console.log(res);
+          sessionStorage.setItem("user_login",JSON.stringify(res));
+          this.userBehaviorSubject.next(res);
+          this.router.navigate(["user/list"]);
+        }else{
+          this.toasty.error("Invalid user or/and password!") 
+        }
+      }
+    );
+    /*this.userService.retrieveByLogin(login)
       .subscribe(
         (res:User[])=>{
           if(res.length>0){
@@ -39,7 +54,7 @@ export class AuthUserService {
             //this.toasty.error("User does not exist!") 
           }
         }
-      );
+      );*/
   }
 
   logout(){
