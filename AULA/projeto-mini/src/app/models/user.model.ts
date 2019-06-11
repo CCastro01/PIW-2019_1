@@ -7,4 +7,5 @@ export class User{
     email:string;
     zipcode:string;
     password:string;
+    token:any;
 }

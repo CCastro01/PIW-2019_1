@@ -9,8 +9,8 @@ import { ModuleWithProviders } from '@angular/core';
 const routes:Routes = [
     {path:'',component:LoginUserComponent},
     {path:'login',component:LoginUserComponent},
-    {path:'list',component:ListUserComponent, canActivate: [GuardService]},
     {path:'register',component:RegisterUserComponent},
+    {path:'list',component:ListUserComponent, canActivate: [GuardService]},
     {path:'edit/:id',component:EditUserComponent, canActivate: [GuardService]},
 ];
 

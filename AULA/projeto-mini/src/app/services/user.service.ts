@@ -9,14 +9,9 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   url:string = "http://localhost:3000/user";
+  loginUrl:string = "http://localhost:3000/login";
 
-  constructor(private httpClient:HttpClient) { }
-
-  register(user:User):Observable<User>{
-    //return this.httpClient.post<User>(this.url,user);  // json-server
-    return this.httpClient.post<User>(`${this.url}/register`,user); //express 
-
-  }
+  constructor(private httpClient:HttpClient) {}
 
   list():Observable<User[]>{
     //return this.httpClient.get<User[]>(this.url);  //json-server
@@ -44,9 +39,16 @@ export class UserService {
     return this.httpClient.get<User[]>(`${this.url}/retrieve/login/${login}`); //express
   }
 
+  //no need auth
   login(login:string,password:string){
     let inputLogin = {"login":login,"password":password}
-    return this.httpClient.post<User>(`${this.url}/login`,inputLogin); //mongo
+    return this.httpClient.post<User>(`${this.loginUrl}/`,inputLogin); //mongo
+  }
+
+  register(user:User):Observable<User>{
+    //return this.httpClient.post<User>(this.url,user);  // json-server
+    return this.httpClient.post<User>(`${this.loginUrl}/register`,user); //express 
+
   }
 
 }
