@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-6 offset-3">
+
+    <h2>Login</h2>
+    <hr>
+    <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm"> 
+        
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" name="login" id="login"
+        [(ngModel)]="user.login"#login="ngModel" required
+        [ngClass]="{ 'is-invalid': registerForm.submitted && login.invalid }">
+
+        <div *ngIf="login.invalid && registerForm.submitted" class="text-danger mt-1">
+          <div *ngIf="login.errors['required']">Login is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password"
+        [(ngModel)]="user.password"
+        #password="ngModel" required minlength="6"
+        [ngClass]="{ 'is-invalid': registerForm.submitted && password.invalid }">
+
+        <div *ngIf="password.invalid && registerForm.submitted" class="text-danger mt-1" >
+          <div *ngIf="password.errors['required']">Password is required.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enter</button>
+      <a [routerLink]="['/user/register']" class="ml-2">Register</a>
+
+    </form>
+
+  </div>
+</div>
