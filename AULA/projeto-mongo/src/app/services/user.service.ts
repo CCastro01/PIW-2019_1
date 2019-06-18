@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  url:string = "http://localhost:3000/user";
-  loginUrl:string = "http://localhost:3000/login";
+  url:string = "https://localhost:3000/user";
+  loginUrl:string = "https://localhost:3000/login";
 
   constructor(private httpClient:HttpClient) {}
 
@@ -39,8 +39,9 @@ export class UserService {
     return this.httpClient.get<User[]>(`${this.url}/retrieve/login/${login}`); //express
   }
 
-  //no need auth
+  
   login(login:string,password:string){
+    
     let inputLogin = {"login":login,"password":password}
     return this.httpClient.post<User>(`${this.loginUrl}/`,inputLogin); //mongo
   }
