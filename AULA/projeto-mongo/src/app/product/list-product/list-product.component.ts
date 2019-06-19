@@ -29,7 +29,8 @@ export class ListProductComponent implements OnInit {
         this.products = res;
       },
       (error:any)=>{
-        this.authUserService.logout();
+        console.log(error);
+        this.authUserService.logout(error);
       }
     );
   }
@@ -45,7 +46,7 @@ export class ListProductComponent implements OnInit {
         this.list();
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }

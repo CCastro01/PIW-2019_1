@@ -29,7 +29,7 @@ export class ListUserComponent implements OnInit {
         this.users = res;
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }
@@ -45,7 +45,7 @@ export class ListUserComponent implements OnInit {
         this.list();
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }

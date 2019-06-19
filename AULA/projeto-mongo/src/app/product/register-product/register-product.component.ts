@@ -36,7 +36,7 @@ export class RegisterProductComponent implements OnInit {
         this.router.navigate(["product/list"]);
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }

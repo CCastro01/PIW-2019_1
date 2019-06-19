@@ -37,6 +37,7 @@ export class RegisterUserComponent implements OnInit {
       },
       (error:any)=>{
         console.log(error);
+        this.toasty.error("Server error.");
       }
     );
   }

@@ -39,7 +39,10 @@ export class AuthUserService {
     );
   }
 
-  logout(){
+  logout(error?:any){
+    if(error.error){
+      this.toasty.error(error.error.message); 
+    }
     sessionStorage.removeItem("user_login");
     localStorage.removeItem("access_token");
     this.userBehaviorSubject.next(null);

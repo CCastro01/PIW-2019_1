@@ -46,7 +46,7 @@ export class EditUserComponent implements OnInit {
         this.router.navigate(["user/list"]);
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }

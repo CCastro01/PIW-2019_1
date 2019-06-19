@@ -28,7 +28,7 @@ export class EditProductComponent implements OnInit {
         this.product = res;
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }
@@ -46,7 +46,7 @@ export class EditProductComponent implements OnInit {
         this.router.navigate(["product/list"]);
       },
       (error:any)=>{
-        this.authUserService.logout();
+        this.authUserService.logout(error);
       }
     );
   }
