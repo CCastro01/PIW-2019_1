@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { Router } from '@angular/router';
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/product.model';
@@ -13,7 +14,8 @@ export class ListProductComponent implements OnInit {
   products:Product[];
 
   constructor(private productService: ProductService,
-              private router:Router) { 
+              private router:Router,
+              private authUserService: AuthUserService) { 
     this.products = [];
   }
 
@@ -25,6 +27,9 @@ export class ListProductComponent implements OnInit {
     this.productService.list().subscribe(
       (res:Product[])=>{
         this.products = res;
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }
@@ -38,6 +43,9 @@ export class ListProductComponent implements OnInit {
       (res:any)=>{
         console.log(`Product id ${id} deleted!`);
         this.list();
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }

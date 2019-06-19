@@ -25,7 +25,7 @@ class LoginService{
             (user)=>{
                 if(bcrypt.compareSync(loginForm.password,user.password)){
                     //LOGIN ENCONTRADO E CHAVES BATEM (CRIAR TOKEN)
-                    let token = jwt.sign({user: user}, 'secret');
+                    let token = jwt.sign({user: user}, 'secret', {expiresIn:600});//10 minutos
                     res.status(201).json({
                         'firstName':user.firstName,
                         'lastName': user.lastName,

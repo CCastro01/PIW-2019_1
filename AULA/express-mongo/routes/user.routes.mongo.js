@@ -2,6 +2,7 @@ var userService = require('../services/user.service.mongo');
 var express = require('express');
 var router = express.Router();
 
+
 router.get('/list', function (req, res, next) {
     userService.list(req, res);
 });

@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ProductService } from './../../services/product.service';
@@ -16,7 +17,8 @@ export class RegisterProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private toasty:ToastrService,
-              private router:Router) {
+              private router:Router,
+              private authUserService:AuthUserService) {
     this.product = new Product();
   }
 
@@ -32,6 +34,9 @@ export class RegisterProductComponent implements OnInit {
       (res:Product)=>{
         console.log(`Produc id ${res._id} added!`)
         this.router.navigate(["product/list"]);
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }

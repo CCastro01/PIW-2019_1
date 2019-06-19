@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { NgForm } from '@angular/forms';
 import { ProductService } from './../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,13 +18,17 @@ export class EditProductComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,
               private productService:ProductService,
               private router:Router,
-              private toasty:ToastrService) { }
+              private toasty:ToastrService,
+              private authUserService:AuthUserService) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params["id"];
     this.productService.retrieveById(id).subscribe(
       (res:Product)=>{
         this.product = res;
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }
@@ -40,6 +45,9 @@ export class EditProductComponent implements OnInit {
         console.log(`Product id ${res._id} updated!`);
         this.router.navigate(["product/list"]);
       },
+      (error:any)=>{
+        this.authUserService.logout();
+      }
     );
   }
 

@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ export class ListUserComponent implements OnInit {
   users:User[];
 
   constructor(private userService:UserService,
-              private router:Router) { 
+              private router:Router,
+              private authUserService: AuthUserService) { 
     this.users = [];
   }
 
@@ -25,6 +27,9 @@ export class ListUserComponent implements OnInit {
     this.userService.list().subscribe(
       (res:User[])=>{
         this.users = res;
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }
@@ -38,6 +43,9 @@ export class ListUserComponent implements OnInit {
       (res:any)=>{
         console.log(`User id ${id} deleted!`);
         this.list();
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }

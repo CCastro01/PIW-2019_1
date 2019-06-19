@@ -1,11 +1,11 @@
 const UserModel = require('../models/user.model');
-const auth = require('./auth.service');
+//const auth = require('./auth.service');
 
 
 class UserService{
 
     static list(req,res){
-        if(!auth.check(req.headers.authorization,res)) return;
+        //if(!auth.check(req.headers.authorization,res)) return;
         UserModel.find().then(
             (users)=>{
                 res.status(201).json(users);
@@ -18,7 +18,7 @@ class UserService{
     }
 
     static update(req,res){
-        if(!auth.check(req.headers.authorization,res)) return;
+        //if(!auth.check(req.headers.authorization,res)) return;
         UserModel.findByIdAndUpdate(req.params.id, req.body, {'new':true}).then(
             (user)=>{
                 res.status(201).json(user);
@@ -31,7 +31,7 @@ class UserService{
     }
 
     static delete(req,res){
-        if(!auth.check(req.headers.authorization,res)) return;
+        //if(!auth.check(req.headers.authorization,res)) return;
         UserModel.findByIdAndRemove(req.params.id).then(
             (user)=>{
                 res.status(201).json(user);
@@ -44,7 +44,7 @@ class UserService{
     }
 
     static retrieve(req,res){
-        if(!auth.check(req.headers.authorization,res)) return;
+        //if(!auth.check(req.headers.authorization,res)) return;
         UserModel.findById(req.params.id).then(
             (user)=>{
                 res.status(201).json(user);
@@ -57,7 +57,7 @@ class UserService{
     }
 
     static retrieveByLogin(req,res){
-        if(!auth.check(req.headers.authorization,res)) return;
+        //if(!auth.check(req.headers.authorization,res)) return;
         UserModel.find({'login':req.params.login}).then(
             (user)=>{
                 res.status(201).json(user);

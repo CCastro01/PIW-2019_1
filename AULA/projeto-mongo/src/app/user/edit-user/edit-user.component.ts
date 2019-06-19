@@ -1,3 +1,4 @@
+import { AuthUserService } from './../../services/auth-user.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -17,13 +18,17 @@ export class EditUserComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute,
               private userService:UserService,
               private router:Router,
-              private toasty:ToastrService) { }
+              private toasty:ToastrService,
+              private authUserService:AuthUserService) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params["id"];
     this.userService.retrieveById(id).subscribe(
       (res:User)=>{
         this.user = res;
+      },
+      (error:any)=>{
+        this.authUserService.logout();
       }
     );
   }
@@ -40,6 +45,9 @@ export class EditUserComponent implements OnInit {
         console.log(`User id ${res._id} updated!`);
         this.router.navigate(["user/list"]);
       },
+      (error:any)=>{
+        this.authUserService.logout();
+      }
     );
   }
 
